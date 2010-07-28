@@ -9,13 +9,13 @@ Nailgun
 Install
 =======
 
-> ./script/plugin install git://github.com/amardaxini/nailgun.git
+<code>./script/plugin install git://github.com/amardaxini/nailgun.git</code>
 
 Configuration
 ==============
 
 These are the default settings which can be overwritten in your enviroment configuration file:
-<
+<code>
    
    Nailgun::NailgunConfig.options = {
     :java_bin => "java",          # java binary
@@ -23,11 +23,11 @@ These are the default settings which can be overwritten in your enviroment confi
     :port_no=>'2113'
   }
   
->
+</code>
 Example
 =======
 To start nailgun server(if you want you can overwrite default configuration)
-> script/nailgun start
+<code> script/nailgun start</code>
 
 To start nailgun server
 > script/nailgun stop
