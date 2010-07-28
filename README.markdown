@@ -34,17 +34,19 @@ To start nailgun server(if you want you can overwrite default configuration)
 <code> script/nailgun start</code>
 
 To stop nailgun server
+
 <code>script/nailgun stop</code>
 
 To add client side jar
+
 <code>Nailgun::NgCommand.ng_cp(absolute jar path)</code>
 
 To create alias of class
-<code>Nailgun::NgCommand.ng_alias(alias name,class name)</code>
 
+<code>Nailgun::NgCommand.ng_alias(alias name,class name)</code>
  
 Make sure that class name is exist in client side jar path and its contain main
 To easy to use nailgun server best way is combine all jar to make one jar
 
-Copyright (c) 2010 [amardaxini], released under the MIT license
-[amardaxini] : http://railstech.com
+Copyright (c) 2010 [amardaxini][1], released under the MIT license
+[1]: http://railstech.com
