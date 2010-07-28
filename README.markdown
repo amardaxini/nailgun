@@ -8,30 +8,38 @@ Nailgun
 
 Install
 =======
+
 > ./script/plugin install git://github.com/amardaxini/nailgun.git
+
 Configuration
 ==============
 
 These are the default settings which can be overwritten in your enviroment configuration file:
-
+<
+   
    Nailgun::NailgunConfig.options = {
     :java_bin => "java",          # java binary
     :server_address =>'localhost',
     :port_no=>'2113'
   }
-    
+  
+>
 Example
 =======
 To start nailgun server(if you want you can overwrite default configuration)
 > script/nailgun start
+
 To start nailgun server
 > script/nailgun stop
+
 To add client side jar
 > Nailgun::NgCommand.ng_cp(absolute jar path)
+
 To create alias of class
 > Nailgun::NgCommand.ng_alias(alias name,class name)
+
  
 Make sure that class name is exist in client side jar path and its contain main
  To easy to use nailgun server best way is combine all jar to mke one jar
 
-Copyright (c) 2010 [amardaxini], released under the MIT license
+Copyright (c) 2010 [amardaxini]:http://railstech.com, released under the MIT license
