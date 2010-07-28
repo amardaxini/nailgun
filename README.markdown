@@ -1,11 +1,10 @@
 Nailgun
 =======
-  Nailgun is server that preloads JVM so no need to load JVM on each request.
-  More you can read http://martiansoftware.com/nailgun
+  [Nailgun][1] is server that preloads JVM so no need to load JVM on each request.
   nailgun is a ruby wrapper of nailgun server and itc command
   Make sure before installing You have to set class path environment variable
   which is point to jre/lib path.
-
+  [1]:http://martiansoftware.com/nailgun
 Install
 =======
 
