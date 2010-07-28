@@ -6,8 +6,11 @@ Nailgun
   Make sure before installing You have to set class path environment variable
   which is point to jre/lib path.
 
+Install
+=======
+> ./script/plugin install git://github.com/amardaxini/nailgun.git
 Configuration
--------------
+==============
 
 These are the default settings which can be overwritten in your enviroment configuration file:
 
@@ -20,14 +23,15 @@ These are the default settings which can be overwritten in your enviroment confi
 Example
 =======
 To start nailgun server(if you want you can overwrite default configuration)
- script/nailgun start
+> script/nailgun start
 To start nailgun server
- script/nailgun stop
+> script/nailgun stop
 To add client side jar
- Nailgun::NgCommand.ng_cp(absolute jar path)
+> Nailgun::NgCommand.ng_cp(absolute jar path)
 To create alias of class
- Nailgun::NgCommand.ng_alias(alias name,class name)
- Make sure that class name is exist in client side jar path and its contain main
- To easy to use nailgun server best way is combine all jar to make one jar
+> Nailgun::NgCommand.ng_alias(alias name,class name)
+ 
+Make sure that class name is exist in client side jar path and its contain main
+ To easy to use nailgun server best way is combine all jar to mke one jar
 
 Copyright (c) 2010 [amardaxini], released under the MIT license
