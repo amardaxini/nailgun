@@ -16,6 +16,7 @@ Install
 
 <code>./script/plugin install git://github.com/amardaxini/nailgun.git</code>
 
+<code>rake nailgun</code>
 Configuration
 ==============
 
