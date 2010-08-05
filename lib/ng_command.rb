@@ -1,7 +1,22 @@
 require 'nailgun_config'
 module Nailgun
 	class NgCommand
-		NGPATH = File.expand_path(File.join(File.dirname(__FILE__), 'java','bin','ng'))
+	  if RUBY_PLATFORM =~ /linux/
+      if RUBY_PLATFORM =~ /x86_64/
+          OS_PLATFORM = 'linux64'
+      else
+        OS_PLATFORM = 'linux32'
+      end
+   elsif RUBY_PLATFORM =~ /darwin/
+      OS_PLATFORM = 'darwin'
+   else
+     OS_PLATFORM = 'win32'
+   end
+  begin
+	  NGPATH = File.expand_path(File.join(File.dirname(__FILE__), 'java','bin',OS_PLATFORM,'ng'))
+  rescue Exception
+    puts "cant find os version"
+  end
 		JAVAPATH = Nailgun::NailgunConfig.options[:java_bin]
 		NGJAR = File.expand_path(File.join(File.dirname(__FILE__), 'java','jar','nailgun-0.7.1.jar'))
 
