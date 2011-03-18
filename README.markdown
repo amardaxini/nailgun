@@ -35,6 +35,11 @@ These are the default settings which can be overwritten in your enviroment confi
 </code>
 Example
 =======
+Run Rake Task
+<code>
+  rake nailgun
+</code>
+
 To start nailgun server(if you want you can overwrite default configuration)
 
 <code> script/nailgun start</code>
