@@ -1,4 +1,4 @@
-require 'nailgun_config'
+#require 'nailgun_config'
 module Nailgun
 	class NgCommand
 	  if RUBY_PLATFORM =~ /linux/
