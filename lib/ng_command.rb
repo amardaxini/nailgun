@@ -1,57 +1,34 @@
+require 'rubygems'
+require 'optparse'
 require 'nailgun_config'
+require 'ng_command'
 module Nailgun
-	class NgCommand
-	  if RUBY_PLATFORM =~ /linux/
-      if RUBY_PLATFORM =~ /x86_64/
-          OS_PLATFORM = 'linux64'
-      else
-        OS_PLATFORM = 'linux32'
-      end
-   elsif RUBY_PLATFORM =~ /darwin/
-      OS_PLATFORM = 'darwin'
-   else
-     OS_PLATFORM = 'win32'
-   end
-  begin
-	  NGPATH = File.expand_path(File.join(File.dirname(__FILE__), 'java','bin',OS_PLATFORM,'ng'))
-  rescue Exception
-    puts "cant find os version"
-  end
-		JAVAPATH = Nailgun::NailgunConfig.options[:java_bin]
-		NGJAR = File.expand_path(File.join(File.dirname(__FILE__), 'java','jar','nailgun-0.7.1.jar'))
-
-		def self.start_server(port_no="",server_address="")
-			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.blank?
-			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.blank?
-			arguments = "#{server_address}:#{port_no}"
-			command= "nohup #{JAVAPATH} -jar #{NGJAR} #{arguments} > /dev/null 2>&1 &"
-			system(command)
+	class NailgunServer
+		attr_accessor :args,:nailgun_options
+		def initialize(args)
+			raise ArgumentError,"please specify start|stop|-h" if args.blank?
+			opts = OptionParser.new do |opts|
+				opts.banner = "Usage: #{File.basename($0)} start|stop"
+				opts.on('-h', '--help', 'Show this message') do
+					puts "Use: start to start server"
+					puts "Use: stop to stop server"
+					puts opts
+					exit 1
+				end
+			end
+			@args = opts.parse!(args)
 		end
 
-		def self.stop_server(port_no="",server_address="")
-			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.blank?
-			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.blank?
-			command ="#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-stop"
-			system(command)
-		end
-
-		def self.ng_cp(absolute_jar_path,port_no="",server_address="")
-			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.blank?
-			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.blank?
-			command ="#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-cp #{absolute_jar_path}"
-			system(command)
-		end
-		
-		def self.ng_alias(alias_name,class_name,port_no="",server_address="")
-			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.blank?
-			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.blank?
-			command = "#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-alias #{alias_name} #{class_name}"
-			system(command)
-		end
-
-		def self.ng_version
-			command = "#{NGPATH} --nailgun-version"
-			system(command)
+		def daemonize
+			if @args.include?('start')
+				Nailgun::NgCommand.start_server
+			elsif @args.include?('stop')
+				Nailgun::NgCommand.stop_server
+			end
 		end
 	end
+
 end
+
+
+
