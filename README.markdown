@@ -22,9 +22,9 @@ OR If as a gem is install
 
 <code> sudo gem insatll nailgun </code>
 
-<code>nailgun start</code>
+<code>sudo nailgun start</code>
 
-<code>nailgun stop</code>
+<code>sudo nailgun stop</code>
 
 Configuration
 ==============

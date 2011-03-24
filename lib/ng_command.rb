@@ -25,7 +25,7 @@ module Nailgun
 			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.empty?
 			arguments = "#{server_address}:#{port_no}"
 			command= "nohup #{JAVAPATH} -jar #{NGJAR} #{arguments} > /dev/null 2>&1 &"
-			puts command
+	#		puts command
 			system(command)
 		end
 
@@ -33,7 +33,7 @@ module Nailgun
 			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.empty?
 			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.empty?
 			command ="#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-stop"
-			puts command
+	#		puts command
 			system(command)
 		end
 
@@ -41,7 +41,7 @@ module Nailgun
 			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.empty?
 			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.empty?
 			command ="#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-cp #{absolute_jar_path}"
-			puts command
+	#		puts command
 			system(command)
 		end
 		
@@ -49,13 +49,13 @@ module Nailgun
 			server_address = Nailgun::NailgunConfig.options[:server_address] if server_address.empty?
 			port_no  = Nailgun::NailgunConfig.options[:port_no] if port_no.empty?
 			command = "#{NGPATH} --nailgun-port #{port_no} --nailgun-server #{server_address} ng-alias #{alias_name} #{class_name}"
-			puts command
+	#		puts command
 			system(command)
 		end
 
 		def self.ng_version
 			command = "#{NGPATH} --nailgun-version"
-			puts command
+	#		puts command
 			system(command)
 		end
 	end
