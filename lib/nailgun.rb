@@ -1,11 +1,11 @@
 #require 'optparse'
-#require 'lib/nailgun_config'
-#require 'lib/ng_command'
+require 'nailgun_config'
+require 'ng_command'
 module Nailgun
 	class NailgunServer
 		attr_accessor :args,:nailgun_options
 		def initialize(args)
-			raise ArgumentError,"please specify start|stop|-h" if args.blank?
+			raise ArgumentError,"please specify start|stop|-h" if args.empty?
 			opts = OptionParser.new do |opts|
 				opts.banner = "Usage: #{File.basename($0)} start|stop"
 				opts.on('-h', '--help', 'Show this message') do

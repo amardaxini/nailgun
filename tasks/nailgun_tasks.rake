@@ -6,13 +6,4 @@ task :nailgun do
 	FileUtils.cp_r(src_file, dest_file)
 	File.chmod(0755,dest_file)
 end
-namespace :nailgun do
-	desc "Start Naulgun server"
-	task :start do
-		Nailgun::NailgunServer.new("start").daemonize
-	end
-	desc "Stop Naulgun server"
-	task :stop do
-		Nailgun::NailgunServer.new("stop").daemonize
-	end
-end
+
