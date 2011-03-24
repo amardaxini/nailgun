@@ -58,6 +58,7 @@ To stop nailgun server
 <code>script/nailgun stop</code>
 
 Install as a Gem
+It will generate local configuration for nailgun
 <code>
   rake nailgun
 </code>
