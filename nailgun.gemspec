@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "acts_as_flying_saucer/version"
 
 Gem::Specification.new do |s|
   s.name        = "nailgun"
@@ -11,11 +10,10 @@ Gem::Specification.new do |s|
   s.homepage    = "http://rubygems.org/gems/nailgun"
   s.summary     = %q{XHTML to PDF using Flying Saucer java library}
   s.description = %q{XHTML to PDF using Flying Saucer java library}
-  s.rubyforge_project = "acts_as_flying_saucer"
+  s.rubyforge_project = "nailgun"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-
   s.require_paths = ["lib"]
 end

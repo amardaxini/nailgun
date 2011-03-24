@@ -1,7 +1,6 @@
-require 'rubygems'
-require 'optparse'
-require 'nailgun_config'
-require 'ng_command'
+#require 'optparse'
+#require 'lib/nailgun_config'
+#require 'lib/ng_command'
 module Nailgun
 	class NailgunServer
 		attr_accessor :args,:nailgun_options
