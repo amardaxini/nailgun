@@ -17,6 +17,15 @@ Install
 <code>./script/plugin install git://github.com/amardaxini/nailgun.git</code>
 
 <code>rake nailgun</code>
+
+OR If as a gem is install
+
+<code> sudo gem insatll nailgun </code>
+
+<code>nailgun start</code>
+
+<code>nailgun stop</code>
+
 Configuration
 ==============
 
