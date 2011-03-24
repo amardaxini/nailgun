@@ -18,13 +18,10 @@ Install
 
 <code>rake nailgun</code>
 
-OR If as a gem is install
-
+OR
 <code> sudo gem insatll nailgun </code>
 
-<code>sudo nailgun start</code>
 
-<code>sudo nailgun stop</code>
 
 Configuration
 ==============
@@ -45,6 +42,9 @@ These are the default settings which can be overwritten in your enviroment confi
 Example
 =======
 Run Rake Task
+
+Install as a plugin
+
 <code>
   rake nailgun
 </code>
@@ -56,6 +56,19 @@ To start nailgun server(if you want you can overwrite default configuration)
 To stop nailgun server
 
 <code>script/nailgun stop</code>
+
+Install as a Gem
+<code>
+  rake nailgun
+</code>
+
+To start nailgun server(if you want you can overwrite default configuration)
+
+<code> nailgun start</code>
+
+To stop nailgun server
+
+<code>nailgun stop</code>
 
 To add client side jar
 
