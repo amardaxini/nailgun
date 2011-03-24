@@ -1,6 +1,7 @@
 #require 'optparse'
 require 'nailgun_config'
 require 'ng_command'
+
 module Nailgun
 	class NailgunServer
 		attr_accessor :args,:nailgun_options
