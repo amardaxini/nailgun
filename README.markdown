@@ -59,9 +59,7 @@ To stop nailgun server
 
 Install as a Gem
 It will generate local configuration for nailgun
-<code>
-  rake nailgun
-</code>
+update nailgun configuration and manage nailgun
 
 To start nailgun server(if you want you can overwrite default configuration)
 
