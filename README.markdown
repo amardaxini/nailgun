@@ -58,7 +58,7 @@ To stop nailgun server
 <code>script/nailgun stop</code>
 
 Install as a Gem
-It will generate local configuration for nailgun
+It will generate local configuration for nailgun_config
 update nailgun configuration and manage nailgun
 
 To start nailgun server(if you want you can overwrite default configuration)
