@@ -48,6 +48,8 @@ Install as a plugin
 <code>
   rake nailgun
 </code>
+
+
 It will generate nailgun_config binary.
 
 To start nailgun server(if you want you can overwrite default configuration)
