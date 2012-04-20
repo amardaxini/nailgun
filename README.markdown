@@ -48,14 +48,15 @@ Install as a plugin
 <code>
   rake nailgun
 </code>
+It will generate nailgun_config binary.
 
 To start nailgun server(if you want you can overwrite default configuration)
 
-<code> script/nailgun start</code>
+<code> nailgun_config start</code>
 
 To stop nailgun server
 
-<code>script/nailgun stop</code>
+<code>nailgun_config stop</code>
 
 Install as a Gem
 It will generate local configuration for nailgun_config
@@ -63,11 +64,11 @@ update nailgun configuration and manage nailgun
 
 To start nailgun server(if you want you can overwrite default configuration)
 
-<code> nailgun start</code>
+<code> nailgun_config start</code>
 
 To stop nailgun server
 
-<code>nailgun stop</code>
+<code>nailgun_config stop</code>
 
 To add client side jar
 
