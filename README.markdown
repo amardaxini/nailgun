@@ -19,7 +19,7 @@ Install
 <code>rake nailgun</code>
 
 OR
-<code> sudo gem insatll nailgun </code>
+<code> sudo gem install nailgun </code>
 
 
 
