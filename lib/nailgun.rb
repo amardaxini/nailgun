@@ -1,4 +1,4 @@
-#require 'optparse'
+require 'optparse'
 require 'nailgun_config'
 require 'ng_command'
 
