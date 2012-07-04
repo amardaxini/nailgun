@@ -13,7 +13,12 @@ module Nailgun
       OS_PLATFORM = 'win32'
     end
 
-    NGPATH = File.expand_path(File.join(File.dirname(__FILE__), 'java', 'bin', OS_PLATFORM, 'ng'))
+    begin
+      NGPATH = File.expand_path(File.join(File.dirname(__FILE__), 'java', 'bin', OS_PLATFORM, 'ng'))
+    rescue NameError
+      raise "OS cannot be identified"
+    end
+
     JAVAPATH = Nailgun::NailgunConfig.options[:java_bin]
     NGJAR = File.expand_path(File.join(File.dirname(__FILE__), 'java','jar','nailgun-0.7.1.jar'))
 
