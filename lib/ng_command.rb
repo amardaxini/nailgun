@@ -34,6 +34,10 @@ module Nailgun
       end
     end
 
+    def self.add_cps(paths, config={})
+      paths.each { |path| ng_cp path, config }
+    end
+
     def self.ng_cp(absolute_jar_path="", config={})
       execute_command config do |p, s|
         "#{NGPATH} --nailgun-port #{p} --nailgun-server #{s} ng-cp #{absolute_jar_path}"
