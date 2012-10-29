@@ -24,7 +24,7 @@ module Nailgun
 
     def self.start_server(config={})
       execute_command config do |p, s|
-        "nohup #{JAVAPATH} -jar #{NGJAR} #{s}:#{p} > /dev/null 2>&1 &"
+        "nohup #{JAVAPATH} -server -Djava.awt.headless=true -jar #{NGJAR} #{s}:#{p} > /dev/null 2>&1 &"
       end
     end
 
