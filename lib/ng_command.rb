@@ -24,14 +24,12 @@ module Nailgun
 
     def self.start_server(config={})
       execute_command config do |p, s|
-        "nohup #{JAVAPATH} -jar #{NGJAR} #{s}:#{p} > /dev/null 2>&1 &"
+        "nohup #{JAVAPATH} -server -Djava.awt.headless=true -jar #{NGJAR} #{s}:#{p} > /dev/null 2>&1 &"
       end
     end
 
     def self.stop_server(config={})
-      execute_command config do |p, s|
-        "#{NGPATH} --nailgun-port #{p} --nailgun-server #{s} ng-stop"
-      end
+      run "ng-stop", config
     end
 
     def self.add_cps(paths, config={})
@@ -39,19 +37,21 @@ module Nailgun
     end
 
     def self.ng_cp(absolute_jar_path="", config={})
-      execute_command config do |p, s|
-        "#{NGPATH} --nailgun-port #{p} --nailgun-server #{s} ng-cp #{absolute_jar_path}"
-      end
+      run "ng-cp #{absolute_jar_path}", config
     end
 
     def self.ng_alias(alias_name, class_name, config={})
-      execute_command config do |p, s|
-        "#{NGPATH} --nailgun-port #{p} --nailgun-server #{s} ng-alias #{alias_name} #{class_name}"
-      end
+      run "ng-alias #{alias_name} #{class_name}", config
     end
 
     def self.ng_version
       system "#{NGPATH} --nailgun-version"
+    end
+
+    def self.run(command, config={})
+      execute_command config do |p, s|
+        "#{NGPATH} --nailgun-port #{p} --nailgun-server #{s} #{command}"
+      end      
     end
 
   private
@@ -63,10 +63,10 @@ module Nailgun
     # system subcall.
 
     def self.execute_command(config={}, &block)
-      server_address = Nailgun::NailgunConfig.options[:server_address] if config[:server_address].nil?
-      port_no = Nailgun::NailgunConfig.options[:port_no] if config[:port_no].nil?
+      config[:server_address] ||= Nailgun::NailgunConfig.options[:server_address]
+      config[:port_no]        ||= Nailgun::NailgunConfig.options[:port_no]
 
-      command = yield port_no, server_address
+      command = yield config[:port_no], config[:server_address]
       system(command)
     end
 
