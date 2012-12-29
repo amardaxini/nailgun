@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Amar Daxini"]
   s.email       = ["amardaxini@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/nailgun"
-  s.summary     = %q{XHTML to PDF using Flying Saucer java library}
-  s.description = %q{XHTML to PDF using Flying Saucer java library}
+  s.summary     = %q{Start JRuby faster by leaving a JVM running in the background}
+  s.description = %q{Start JRuby faster by leaving a JVM running in the background}
   s.rubyforge_project = "nailgun"
 
   s.files         = `git ls-files`.split("\n")
